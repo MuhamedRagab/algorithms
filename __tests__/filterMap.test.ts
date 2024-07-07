@@ -28,12 +28,12 @@ describe('filterMap', () => {
     expect(result).toEqual([]);
   });
 
-  it('should return an empty array if the input array is empty', () => {
+  it('should filter and map an array', () => {
     const arr: number[] = [1, 3, 5, 7, 9];
     const result = filterMap(arr, {
-      filter: val => val % 2 === 0,
+      filter: val => val > 5,
       map: val => val * 2,
     });
-    expect(result).toEqual([]);
+    expect(result).toEqual([14, 18]);
   });
 });

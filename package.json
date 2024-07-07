@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "name": "shadow-algorithms",
   "license": "MIT",
   "author": {
@@ -14,13 +14,13 @@
     "directory": "packages/shadow-algorithms"
   },
   "displayName": "Shadow Algorithms",
+  "module": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "test": "bun test"
+    "test": "bun test",
+    "create:exports": "bash ./scripts/create_exports.sh"
   },
   "type": "module",
-  "dependencies": {
-    "bun": "latest"
-  },
   "devDependencies": {
     "@types/bun": "latest"
   },
