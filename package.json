@@ -1,8 +1,6 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "shadow-algorithms",
-  "module": "index.ts",
-  "main": "index.ts",
   "license": "MIT",
   "author": {
     "name": "Mohamed Ragab",
@@ -17,7 +15,6 @@
   },
   "displayName": "Shadow Algorithms",
   "scripts": {
-    "start": "bun start",
     "test": "bun test"
   },
   "type": "module",
