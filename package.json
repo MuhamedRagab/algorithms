@@ -1,7 +1,29 @@
 {
-  "name": "algorithms",
+  "version": "1.0.0",
+  "name": "shadow-algorithms",
   "module": "index.ts",
+  "main": "index.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Mohamed Ragab",
+    "email": "mohamedragab1649@gmail.com"
+  },
+  "publisher": "Mohamed Ragab",
+  "description": "A collection of algorithms and data structures implemented in TypeScript.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuhamedRagab/algorithms",
+    "directory": "packages/shadow-algorithms"
+  },
+  "displayName": "Shadow Algorithms",
+  "scripts": {
+    "start": "bun start",
+    "test": "bun test"
+  },
   "type": "module",
+  "dependencies": {
+    "bun": "latest"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
