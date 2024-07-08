@@ -1,30 +1,27 @@
-export type FilterMapOptions<T> = {
-  filter?: (val: T, index: number) => boolean;
-  map?: (val: T, index: number) => T;
-  newInstance?: boolean;
-};
-
-export function filterMap<T>(arr: T[], options: FilterMapOptions<T> = {}): T[] {
+export function filterMap<T>(
+  arr: T[],
+  filter: (val: T, index: number) => boolean,
+  map: (val: T, index: number) => T,
+  newInstance: boolean = false
+): T[] {
   if (arr.length === 0) return arr;
 
-  const { filter, map, newInstance = false } = options;
   let writeIndex = 0;
-  const result = newInstance ? [] : arr;
+  const result = arr.reduce(
+    (acc: T[], val: T, i: number) => {
+      if (!filter(val, i)) return acc;
 
-  for (let i = 0; i < arr.length; i++) {
-    const val = arr[i];
-
-    if (filter && !filter(val, i)) {
-      continue;
-    }
-
-    if (newInstance) {
-      result.push(map ? map(val, i) : val);
-    } else {
-      arr[writeIndex] = map ? map(val, i) : val;
-      writeIndex++;
-    }
-  }
+      const mappedVal = map(val, i);
+      if (!newInstance) {
+        acc[writeIndex] = mappedVal;
+        writeIndex++;
+      } else {
+        acc.push(mappedVal);
+      }
+      return acc;
+    },
+    newInstance ? [] : arr
+  );
 
   arr.length = !newInstance ? writeIndex : arr.length;
 
