@@ -26,9 +26,7 @@ export function filterMap<T>(arr: T[], options: FilterMapOptions<T> = {}): T[] {
     }
   }
 
-  if (!newInstance) {
-    arr.length = writeIndex; // Adjust the length of the array to remove the unwanted elements
-  }
+  arr.length = !newInstance ? writeIndex : arr.length;
 
   return result;
 }
